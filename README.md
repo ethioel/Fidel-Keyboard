@@ -9,7 +9,7 @@ React-safe input · trace typing · 5-row on-screen keyboard · Ge'ez numerals �
 ![Manifest V3](https://img.shields.io/badge/manifest-MV3-4285F4?style=flat-square)
 ![Version](https://img.shields.io/badge/version-1.5.0-0a8a3a?style=flat-square)
 ![Privacy](https://img.shields.io/badge/network_calls-none-d8241f?style=flat-square)
-![License](https://img.shields.io/badge/license-unlicensed-lightgrey?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 </div>
 
