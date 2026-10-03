@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  *{box-sizing:border-box;margin:0;font-family:'Noto Sans Ethiopic','Abyssinica SIL',system-ui,sans-serif}
+  body{--bg1:#eef4ff;--bg2:#fdfdff;--fg:#1c2333;--muted:#7a8398;--sec:#8a93a6;
+    --card1:rgba(255,255,255,.85);--card2:rgba(244,248,255,.6);--cardbd:rgba(255,255,255,.9);
+    --rowline:rgba(28,35,51,.06);--field:#fff;--fieldbd:rgba(28,35,51,.15);
+    --track:rgba(28,35,51,.15);--accent:#0a6e2f;--accentbg:rgba(10,138,58,.1);
+    --hover:rgba(28,35,51,.05);--ghostbd:rgba(28,35,51,.12);--ghostbg:rgba(255,255,255,.7);
+    --ghostfg:#3a4358;--dangerfg:#8a2b2b;--dangerbg:rgba(216,36,31,.08);
+    --dangerbd:rgba(216,36,31,.18);--dangerhov:rgba(216,36,31,.14);--statsbg:rgba(10,138,58,.08);
+    --pulse:rgba(10,138,58,.16);
+    width:330px;max-height:600px;overflow-y:auto;padding:16px;color:var(--fg);
+    background:linear-gradient(135deg,var(--bg1),var(--bg2))}
+  body.t-dark{--bg1:#161a28;--bg2:#0f1320;--fg:#e8ecf6;--muted:#98a2b8;--sec:#9aa3b8;
+    --card1:rgba(24,28,44,.86);--card2:rgba(15,19,32,.66);--cardbd:rgba(255,255,255,.12);
+    --rowline:rgba(255,255,255,.08);--field:#1b2032;--fieldbd:rgba(255,255,255,.14);
+    --track:rgba(255,255,255,.16);--accent:#8fe0a8;--accentbg:rgba(143,224,168,.12);
+    --hover:rgba(255,255,255,.06);--ghostbd:rgba(255,255,255,.12);--ghostbg:rgba(255,255,255,.05);
+    --ghostfg:#c3cad9;--dangerfg:#f0a0a0;--dangerbg:rgba(216,36,31,.16);
+    --dangerbd:rgba(216,36,31,.3);--dangerhov:rgba(216,36,31,.26);--statsbg:rgba(143,224,168,.1);
+    --pulse:rgba(143,224,168,.18);color-scheme:dark}
+  .card{background:linear-gradient(135deg,var(--card1),var(--card2));
+    backdrop-filter:blur(20px) saturate(1.6);border:1px solid var(--cardbd);
+    border-radius:18px;padding:16px;box-shadow:0 10px 30px rgba(35,45,95,.14)}
+  body.t-dark .card{box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  h1{font-size:17px;display:flex;align-items:center;gap:9px;margin-bottom:6px}
+  .logo{height:30px;border-radius:9px;display:flex;align-items:center;gap:4px;padding:0 9px;
+    color:#fff;background:linear-gradient(135deg,#0a8a3a,#f2c500 52%,#d8241f)}
+  .logo b{font-size:15px}.logo i{width:1px;height:13px;background:rgba(255,255,255,.6)}
+  .logo small{font-size:8px;font-weight:700;font-family:ui-monospace}
+  .sec{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--sec);margin:14px 0 2px}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;
+    border-bottom:1px solid var(--rowline)}
+  .row:last-of-type{border:none}
+  label{font-size:13px}
+  .host{font:600 11px ui-monospace,monospace;color:var(--accent);background:var(--accentbg);
+    padding:2px 7px;border-radius:6px;max-width:120px;overflow:hidden;text-overflow:ellipsis}
+  .sw{position:relative;width:40px;height:22px;flex:0 0 auto;display:inline-block;cursor:pointer}
+  .sw input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;
+    opacity:0;cursor:pointer;z-index:1}
+  .sl{position:absolute;inset:0;border-radius:999px;background:var(--track);
+    transition:.2s;pointer-events:none}
+  .sl:before{content:"";position:absolute;width:18px;height:18px;border-radius:50%;background:#fff;
+    top:2px;left:2px;transition:.2s;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+  .sw input:checked + .sl{background:linear-gradient(135deg,#0a8a3a,#22b45e)}
+  .sw input:checked + .sl:before{transform:translateX(18px)}
+  select,textarea{border:1px solid var(--fieldbd);border-radius:8px;
+    padding:4px 8px;font-size:12px;background:var(--field);color:var(--fg);font-family:inherit}
+  textarea{width:100%;height:88px;font:11px ui-monospace,monospace;resize:vertical}
+  .host2{font:600 11px ui-monospace,monospace;color:var(--accent);background:var(--accentbg);
+    padding:2px 7px;border-radius:6px}
+  input[type=text]{flex:1;min-width:0;border:1px solid var(--fieldbd);border-radius:8px;
+    padding:4px 8px;font-size:12px;background:var(--field);color:var(--fg)}
+  .addrow{display:flex;gap:6px;margin-top:8px}
+  .addrow button,.sniprow button{padding:5px 12px;border:none;border-radius:8px;cursor:pointer;
+    font-size:12px;color:#fff;background:linear-gradient(135deg,#0a8a3a,#22b45e)}
+  ul.sites{list-style:none;max-height:110px;overflow-y:auto;margin-top:6px}
+  ul.sites li{display:flex;align-items:center;justify-content:space-between;font-size:12px;
+    padding:4px 6px;border-radius:7px}
+  ul.sites li:hover{background:var(--hover)}
+  ul.sites button{border:none;background:none;color:#d8241f;cursor:pointer;font-size:13px}
+  .ghost{width:100%;margin-top:8px;padding:8px;border-radius:11px;cursor:pointer;font-size:12px;
+    border:1px solid var(--ghostbd);background:var(--ghostbg);color:var(--ghostfg)}
+  .danger{width:100%;margin-top:8px;padding:9px;border:none;border-radius:11px;cursor:pointer;
+    font-size:13px;color:var(--dangerfg);background:var(--dangerbg);border:1px solid var(--dangerbd)}
+  .danger:hover{background:var(--dangerhov)}
+  p.hint{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.5}
+  .note{font-size:11px;color:var(--sec);margin-top:4px}
+  #stats{font-size:12px;color:var(--accent);background:var(--statsbg);
+    border-radius:9px;padding:7px 10px;margin-top:8px}
+  @keyframes ppulse{0%{background:var(--pulse)}100%{background:transparent}}
+  .row.pulse{animation:ppulse .6s ease}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1><span class="logo"><b>ፊ</b><i></i><small>fi</small></span> ፊደል Keyboard</h1>
+
+    <div class="sec">General</div>
+    <div class="row"><label>Extension enabled</label>
+      <span class="sw"><input type="checkbox" id="en"><span class="sl"></span></span></div>
+    <div class="row"><label>Typing mode</label>
+      <select id="mode"><option value="am">አማርኛ (Ge'ez)</option><option value="en">English</option></select></div>
+    <div class="row"><label>Auto-show keyboard on focus</label>
+      <span class="sw"><input type="checkbox" id="kbd"><span class="sl"></span></span></div>
+    <div class="row"><label>Learn my typing (on-device, synced)</label>
+      <span class="sw"><input type="checkbox" id="learn"><span class="sl"></span></span></div>
+    <div class="row"><label>Remember language per site</label>
+      <span class="sw"><input type="checkbox" id="langmem"><span class="sl"></span></span></div>
+
+    <div class="sec">Appearance & keyboard</div>
+    <div class="row"><label>Theme</label>
+      <select id="theme"><option value="auto">Auto (system)</option><option value="light">Light glass</option><option value="dark">Dark glass</option></select></div>
+    <div class="row"><label>Default keyboard tab</label>
+      <select id="layout">
+        <option value="hagaz">ሀግዕዝ (default)</option>
+        <option value="sadis">ሳድስ</option>
+        <option value="grid">ሰሌዳ (ሀ–ፐ grid)</option>
+        <option value="intl">⌨ EN (QWERTY → ፊደል)</option>
+      </select></div>
+    <div class="row"><label>Trace typing (swipe)</label>
+      <span class="sw"><input type="checkbox" id="trace"><span class="sl"></span></span></div>
+    <div class="row"><label>Key sound & haptics</label>
+      <span class="sw"><input type="checkbox" id="sound"><span class="sl"></span></span></div>
+    <div class="row"><label>Anchor bar to focused field</label>
+      <span class="sw"><input type="checkbox" id="anchor"><span class="sl"></span></span></div>
+
+    <div class="sec">Snippets — one per line: <code>name = text</code> (use \n for newline)</div>
+    <textarea id="snips" spellcheck="false" placeholder="sig = ከሠላምታ ጋር&#10;ty = አመሰግናለሁ።"></textarea>
+    <div class="sniprow" style="margin-top:6px"><button id="snipSave">Save snippets</button></div>
+    <p class="note">Type <b>/name</b> then Space to expand (built-ins: /sig /ty /brb /addr /mail)</p>
+
+    <div class="sec">Sites</div>
+    <div class="row"><label>Rule</label>
+      <select id="siteMode"><option value="all">All sites</option><option value="except">All except listed</option><option value="only">Only listed</option></select></div>
+    <div class="row" id="curSiteRow" style="display:none">
+      <label>Enabled on <span class="host" id="curHost"></span></label>
+      <span class="sw"><input type="checkbox" id="curSite"><span class="sl"></span></span></div>
+    <div class="addrow"><input type="text" id="siteInput" placeholder="example.com">
+      <button id="siteAdd">Add</button></div>
+    <ul class="sites" id="siteList"></ul>
+
+    <div class="sec">Session</div>
+    <div id="stats">Session: 0 words · 0 WPM</div>
+
+    <div class="sec">Data</div>
+    <button class="ghost" id="resetPos">Reset bar position</button>
+    <button class="danger" id="clear">Clear learned words</button>
+    <button class="danger" id="clearClip">Clear clipboard history</button>
+
+    <p class="hint"><b>Ctrl+Shift+K</b> toggles the keyboard. Type latin → fidel live. <b>Space</b> commits · <b>1–9</b> pick · <b>Esc</b> cancels · double-space → ። · Ctrl+Z undoes commits. Everything stays on your device — zero network calls.</p>
+    <p class="hint"><a href="../privacy.html" target="_blank" rel="noopener">Privacy policy</a> — what is stored, and what syncs.</p>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

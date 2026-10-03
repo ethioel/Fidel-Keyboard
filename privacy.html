@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Privacy Policy — ፊደል Keyboard</title>
+<style>
+  :root{
+    --bg:#fbfbfd; --fg:#1b1d21; --mut:#5c6270; --line:#e3e6ec;
+    --card:#fff; --accent:#0a8a3a; --accent2:#f2c500; --warn-bg:#fff8e6; --warn-line:#f0d68a;
+    --code-bg:#f2f4f8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14161a; --fg:#e9ecf1; --mut:#a2a9b8; --line:#2a2f38;
+      --card:#1b1e24; --accent:#3ecf72; --accent2:#f2c500; --warn-bg:#241f10; --warn-line:#4a3f1c;
+      --code-bg:#22262e;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; padding:2.5rem 1.25rem 5rem;
+    background:var(--bg); color:var(--fg);
+    font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  main{max-width:46rem; margin:0 auto}
+  header{border-bottom:2px solid var(--accent); padding-bottom:1.25rem; margin-bottom:2rem}
+  .logo{display:flex; align-items:center; gap:.65rem; margin-bottom:.5rem}
+  .mark{
+    width:44px; height:44px; border-radius:11px; flex:0 0 auto;
+    display:grid; place-items:center; color:#fff; font-weight:700; font-size:1.25rem;
+    background:linear-gradient(135deg, var(--accent) 0%, var(--accent2) 52%, #d8241f 100%);
+  }
+  h1{font-size:1.6rem; margin:0; letter-spacing:-.01em}
+  .sub{color:var(--mut); margin:.35rem 0 0; font-size:.95rem}
+  h2{
+    font-size:1.15rem; margin:2.5rem 0 .6rem; padding-bottom:.35rem;
+    border-bottom:1px solid var(--line);
+  }
+  h3{font-size:1rem; margin:1.5rem 0 .4rem}
+  p,li{color:var(--fg)}
+  .muted{color:var(--mut)}
+  ul{padding-left:1.25rem}
+  li{margin:.3rem 0}
+  table{width:100%; border-collapse:collapse; margin:1rem 0; font-size:.92rem}
+  th,td{
+    text-align:left; padding:.55rem .7rem; border:1px solid var(--line);
+    vertical-align:top;
+  }
+  th{background:var(--code-bg); font-weight:600}
+  td code, p code, li code{
+    background:var(--code-bg); padding:.1rem .35rem; border-radius:4px;
+    font-size:.88em; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  .badge{
+    display:inline-block; padding:.1rem .5rem; border-radius:999px;
+    font-size:.78rem; font-weight:600; white-space:nowrap;
+  }
+  .b-local{background:#e6f4ec; color:#0a6b31}
+  .b-sync{background:#e8eefc; color:#1c4fa1}
+  @media (prefers-color-scheme: dark){
+    .b-local{background:#123522; color:#6ee7a0}
+    .b-sync{background:#152742; color:#8ab8ff}
+  }
+  .callout{
+    background:var(--warn-bg); border:1px solid var(--warn-line);
+    border-left-width:4px; border-radius:8px; padding:.9rem 1.1rem; margin:1.25rem 0;
+  }
+  .callout p{margin:.35rem 0}
+  .big{
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    padding:1.1rem 1.25rem; margin:1.25rem 0;
+  }
+  .big .t{font-weight:700; font-size:1.05rem}
+  .scroll{overflow-x:auto}
+  footer{
+    margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--line);
+    color:var(--mut); font-size:.88rem;
+  }
+  @media print{ body{padding:0} .callout{border-color:#999} }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div class="logo">
+    <span class="mark" aria-hidden="true">fi</span>
+    <div>
+      <h1>ፊደል Keyboard — Privacy Policy</h1>
+      <p class="sub">Smart Amharic (Ge'ez) input method for the browser</p>
+    </div>
+  </div>
+</header>
+
+<div class="big">
+  <p class="t">The short version</p>
+  <p>ፊደል Keyboard does not collect, transmit, sell or share any personal data.
+  It has no server, no analytics and no account. It makes <strong>no network
+  requests at all</strong>. Anything it remembers — your settings, your snippets,
+  your clipboard history and the words it learns from you — is stored in your
+  browser's own extension storage on your own device.</p>
+</div>
+
+<h2>1. What we collect</h2>
+
+<p><strong>Nothing.</strong> There is no telemetry, no analytics, no crash
+reporting, no usage tracking, no advertising identifier and no fingerprinting.
+The extension contains no code that sends data anywhere.</p>
+
+<p>The only network access in the entire package is reading the Ge'ez word list,
+which is a file bundled inside the extension and loaded from the extension's own
+local URL (<code>chrome.runtime.getURL("data/dictionary.json")</code>). No request
+ever leaves your machine.</p>
+
+<h2>2. What is stored on your device</h2>
+
+<p>To do its job, the extension keeps a small amount of data in your browser's
+local extension storage. This never leaves your device and is not accessible to
+any website.</p>
+
+<div class="scroll">
+<table>
+  <thead>
+    <tr><th>Data</th><th>Where</th><th>Why</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Clipboard history</strong><br>the last 20 items you copied or cut</td>
+      <td><span class="badge b-local">This device</span></td>
+      <td>Lets you re-insert something you copied earlier</td>
+    </tr>
+    <tr>
+      <td><strong>Snippets</strong><br>phrases you save yourself</td>
+      <td><span class="badge b-local">This device</span></td>
+      <td>Expands your saved phrases with one keystroke</td>
+    </tr>
+    <tr>
+      <td><strong>Learned words</strong><br>only if you turn on learning</td>
+      <td><span class="badge b-local">This device</span></td>
+      <td>Improves the order of word suggestions</td>
+    </tr>
+    <tr>
+      <td><strong>Keyboard layout</strong><br>size, width, screen position</td>
+      <td><span class="badge b-local">This device</span></td>
+      <td>Restores where you put the keyboard</td>
+    </tr>
+    <tr>
+      <td><strong>Recently inserted emoji</strong><br>up to 24</td>
+      <td><span class="badge b-local">This device</span></td>
+      <td>Fills the emoji recents list</td>
+    </tr>
+    <tr>
+      <td><strong>Settings</strong><br>theme, typing mode, sound, trace typing…</td>
+      <td><span class="badge b-sync">Synced</span></td>
+      <td>Carries your preferences to your other devices</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>3. What syncs through your browser account</h2>
+
+<p>If you are signed in to your browser profile, Chrome may sync extension storage
+through <strong>your own browser account</strong>. This is a browser feature, not
+something the extension controls, and the data is never sent to the extension's
+author or to any third party.</p>
+
+<p>The following is included in that sync:</p>
+
+<ul>
+  <li>Your settings — theme, typing mode, whether the on-screen keyboard opens
+      automatically, sound, trace typing, and so on.</li>
+  <li><strong>The hostnames of websites you added to your per-site allow or deny
+      list.</strong> We do not record pages you visit; this is only the short list
+      of domains you chose to save yourself.</li>
+  <li><strong>Per-site language memory</strong>, if you enable it — the domain and
+      the language you last used there.</li>
+  <li><strong>Your learned words</strong>, but only if you turn on
+      “Learn my typing”. If learning is off, nothing about your typing is recorded.</li>
+</ul>
+
+<div class="callout">
+  <p><strong>Your clipboard history and your snippets are never synced.</strong>
+  They stay on the single device where you created them.</p>
+</div>
+
+<p>You can turn off all learning, and clear learned words and clipboard history at
+any time from the extension's options page. Clearing learned words removes them
+from both this device and your synced storage.</p>
+
+<h2>4. Clipboard history in particular</h2>
+
+<p>While the extension is enabled, it listens for the <code>copy</code> and
+<code>cut</code> events on pages and keeps the text involved, up to the most
+recent 20 items. This is how the clipboard feature works.</p>
+
+<ul>
+  <li>It captures text copied on <strong>any</strong> website, not only Amharic
+      ones.</li>
+  <li>It never sends it anywhere, and no website can read it back.</li>
+  <li>It is stored only on this device.</li>
+  <li>Turning the extension off in the popup stops the capture immediately.</li>
+</ul>
+
+<h2>5. Permissions, and why each one is needed</h2>
+
+<div class="scroll">
+<table>
+  <thead><tr><th>Permission</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><code>&lt;all_urls&gt;</code></td>
+      <td>An input method has to be present on the page you are typing into. The
+          content script transliterates what you type and inserts the Ge'ez text.
+          Without this the extension could not function on any site. You can
+          restrict where it runs using the per-site control in the popup.</td>
+    </tr>
+    <tr>
+      <td><code>storage</code></td>
+      <td>Saves your settings, snippets, clipboard history and learned words — all
+          locally, as described above.</td>
+    </tr>
+    <tr>
+      <td><code>tabs</code></td>
+      <td>Draws the toolbar icon and its on/off badge for the site you are
+          currently on. It does not read or store page contents.</td>
+    </tr>
+    <tr>
+      <td><code>scripting</code></td>
+      <td>Installs a small cleanup watcher in the page, so that if the extension is
+          removed or reloaded, the on-screen keyboard does not get stuck on the
+          page with dead buttons. It reads no page content.</td>
+    </tr>
+    <tr>
+      <td><code>alarms</code></td>
+      <td>Periodically re-installs that same cleanup watcher, for the same reason.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>6. Pages you visit</h2>
+
+<p>The extension does not keep a history of the pages you visit, does not read
+their contents, and does not send anything about them anywhere. Its only
+interaction with a page is inserting the text you type into the field you are
+typing in.</p>
+
+<h2>7. Children</h2>
+
+<p>The extension is a general-purpose typing tool and is not directed at children.
+Because it collects no data whatsoever, it does not knowingly collect anything
+from anyone, including children.</p>
+
+<h2>8. Your rights and controls</h2>
+
+<p>Everything the extension stores lives in your browser and can be removed by
+you at any time:</p>
+
+<ul>
+  <li>Turn the extension off entirely from the popup or from
+      <code>chrome://extensions</code>.</li>
+  <li>Uninstalling the extension deletes all of its stored data.</li>
+  <li>Clear learned words, or reset the keyboard position, from the popup.</li>
+  <li>Clear clipboard history and edit or delete snippets in the popup.</li>
+</ul>
+
+<h2>9. Changes to this policy</h2>
+
+<p>If this policy changes, the updated version will be published with the
+extension and its version number updated. Because the extension does not collect
+data, there is no separate notification process and no data to migrate or delete.</p>
+
+<h2>10. Contact</h2>
+
+<p>Questions about this policy, or a privacy concern, can be raised through <a href="https://github.com/ethioel/Fidel-Keyboard/issues">the issue tracker on this project's GitHub page</a>.</p>   
+
+<footer>
+  <p>ፊደል Keyboard — a smart Amharic input method. 100% on-device.</p>
+</footer>
+
+</main>
+</body>
+</html>

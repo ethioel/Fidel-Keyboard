@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ፊደል Keyboard — Smart Amharic IME",
+  "version": "1.5.0",
+  "description": "ፊደል Keyboard: React-safe IME events, trace typing, clipboard history, snippets, per-site control, 5-row OSK, Geez numerals, emoji+flags. 100% on-device.",
+  "permissions": ["storage", "tabs", "scripting", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "commands": {
+    "toggle-fidle": {
+      "suggested_key": { "default": "Ctrl+Shift+K" },
+      "description": "Toggle ፊደል Keyboard on/off"
+    }
+  },
+  "action": { "default_popup": "popup/popup.html" },
+  "web_accessible_resources": [
+    { "resources": ["data/*.json"], "matches": ["<all_urls>"] }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "data/emoji.js",
+        "content/translit.js",
+        "content/predict.js",
+        "content/ui.js",
+        "content/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
