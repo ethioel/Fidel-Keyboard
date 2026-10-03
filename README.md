@@ -167,9 +167,6 @@ Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd>, or click the ⌨ button, to
 | **ሰሌዳ** | The classic ሀ–ፐ grid — one row per order, for learners |
 | **😊** | Emoji and flags by category, with a recents list |
 
-Drag it by the ⠿ grip on the left — it snaps to the nearest edge when you let go.
-Resize it from the right, bottom and corner handles, or pin it in place so it
-follows the focused field instead of floating over the page.
 
 ## Features
 
@@ -210,26 +207,6 @@ switch lets you keep it switched off where you do not want it.
 The full policy, including a table of exactly what is stored where, lives in
 [`privacy.html`](privacy.html) and is linked from the extension's popup.
 
-## Project structure
-
-```
-manifest.json          MV3 manifest: permissions, content scripts, command
-background.js          Toolbar icon, hotkey relay, page-world watchdog injection
-privacy.html           Privacy policy (no data collected; what is stored/synced)
-data/
-  dictionary.json      958 ranked words + 60 bigrams
-  emoji.js             Ge'ez → emoji map, numerals, flag list
-content/
-  translit.js          Transliteration engine: consonant families, ⇧ layer
-  predict.js           Dictionary, bigrams, learning, candidate ranking
-  ui.js                On-screen keyboard, drag/resize, theme, teardown
-  content.js           Field detection, input dispatch, clipboard, snippets
-popup/
-  popup.html/.js       Settings panel
-```
-
-Content scripts load in a fixed order — `emoji → translit → predict → ui → content`
-— because each layer builds on the previous one.
 
 ## How it works
 
@@ -298,8 +275,6 @@ roadmap.
 
 - [ ] Add the test suite to the repository under `tests/`
 - [ ] Icons for store submission, and set `homepage_url` to the hosted policy
-- [ ] Add a monitored contact address to `privacy.html` (store review requires one)
-- [ ] Choose and add a license
 - [ ] Larger dictionary, and a way for users to add their own words
 - [ ] Firefox / Manifest V3 compatibility
 
@@ -320,13 +295,12 @@ merge:
 
 ## License
 
-**Not yet licensed.** The author has not chosen a license for this project yet.
-Add a `LICENSE` file before redistributing.
+**Read `LICENSE`**
 
 ---
 
 <div align="center">
 
-Made with care for the Ge'ez script · ፊደል Keyboard
+Made with care for the Ethiopic script · ፊደል Keyboard
 
 </div>
