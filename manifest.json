@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "ፊደል Keyboard — Smart Amharic IME",
+  "name": "ፊደል Keyboard",
   "version": "1.5.0",
   "description": "ፊደል Keyboard: React-safe IME events, trace typing, clipboard history, snippets, per-site control, 5-row OSK, Geez numerals, emoji+flags. 100% on-device.",
   "permissions": ["storage", "tabs", "scripting", "alarms"],
