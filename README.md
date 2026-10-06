@@ -295,7 +295,7 @@ merge:
 
 ## License
 
-**Read `LICENSE`**
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ---
 
